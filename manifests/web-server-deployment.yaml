@@ -24,7 +24,7 @@ spec:
         io.kompose.service: web-server
     spec:
       containers:
-        - image: mhjkeee/crudback
+        - image: uns1nkablesam/crud23
           name: web-server
           ports:
             - containerPort: 80
