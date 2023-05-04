@@ -14,6 +14,7 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl create ns junk'
             sh 'kubectl apply -f ./manifests -n junk'
+            sh 'ping ya.ru'
           }
         }
       }
