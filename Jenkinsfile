@@ -21,12 +21,12 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          echo 'Branch name: ' + env.BRANCH_NAME
-          if (env.BRANCH_NAME == 'main') {
-            echo 'Executed on the main branch'
+          echo 'Job Name: ' + env.JOB_NAME
+          if (env.JOB_NAME == 'pipetest') {
+            echo 'Tasks ran on the pipetest job'
           }
           else {
-            sh "echo 'Executed elsewhere'"
+            sh "echo 'Tasks ran elsewhere'"
           }
         }
       }
