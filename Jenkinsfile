@@ -14,7 +14,6 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl create ns junk'
             sh 'kubectl apply -f ./manifests -n junk'
-            integer mySuccess = 1
           }
         }
       }
@@ -22,11 +21,11 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          if (mySuccess == 1) {
-            echo 'Deployment succeeded!'
+          if (env.BRANCH_NAME == 'main') {
+            echo 'Executed on the main branch'
           }
           else {
-            sh "echo 'Deployment failed!'"
+            sh "echo 'Executed elsewhere'"
           }
         }
       }
