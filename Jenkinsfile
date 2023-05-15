@@ -21,6 +21,7 @@ pipeline {
     stage('Test') {
       steps {
         script {
+          echo 'Branch name: ' + env.BRANCH_NAME
           if (env.BRANCH_NAME == 'main') {
             echo 'Executed on the main branch'
           }
