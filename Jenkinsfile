@@ -14,14 +14,14 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl create ns junk'
             sh 'kubectl apply -f ./manifests -n junk'
-            def mySuccess = true
+            def mySuccess = 1
           }
         }
       }
     }
     stage('Test') {
       steps {
-        if (mySuccess == true) {
+        if (mySuccess == 1) {
           echo 'Deployment succeeded!'
         }
         else {
